@@ -8,7 +8,7 @@ from flask_cors import CORS
 def setup_app(app: Flask):
     app.config.from_pyfile('./config.py')
     app.add_url_rule('/', view_func=lambda: ('ok', 200))
-    app.register_blueprint(user.bp)
+    app.register_blueprint(user.bp, url_prefix='/users')
 
 
 def init_modules(app: Flask):

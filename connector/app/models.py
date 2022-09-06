@@ -1,3 +1,4 @@
+from time import time
 from flask_sqlalchemy import SQLAlchemy
 from flask.cli import with_appcontext
 from sqlalchemy import *
@@ -21,9 +22,9 @@ def setup_db():
 
 class User(Base):
     uuid = Column(String(36), primary_key=True,
-                  default=lambda: uuid.uuid.uuid4())
-
-
-class Contry(Base):
-    uuid = Column(String(36), primary_key=True,
-                  default=lambda: uuid.uuid.uuid4())
+                  default=lambda: str(uuid.uuid4()))
+    timestamp = Column(BIGINT, default=lambda: str(int(time()*1000)))
+    name = Column(JSON)
+    email = Column(String(100))
+    gender = Column(String(100))
+    location = Column(JSON)
