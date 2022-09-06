@@ -11,15 +11,22 @@ export const App = () => {
     data.countries.find((c) => c.name === country)?.users || []
 
   return (
-    <div>
-      <LoadDataButton callback={setData} />
-      <CountrySelector
-        value={country}
-        setValue={setCountry}
-        items={data.countries.map((c) => c.name)}
-      />
-      <UserList users={usersInCountry} />
-    </div>
+    <form
+      className='form-control max-w-[80ch] mx-auto'
+      onSubmit={(e) => e.preventDefault()}>
+      <header className='flex p-1 border-b border-gray-200 space-x-2'>
+        <LoadDataButton callback={setData} />
+        <CountrySelector
+          value={country}
+          setValue={setCountry}
+          items={data.countries.map((c) => c.name)}
+        />
+      </header>
+      <main>
+        <h1 className='my-2 text-lg'>Demicon Test App</h1>
+        <UserList users={usersInCountry} />
+      </main>
+    </form>
   )
 }
 

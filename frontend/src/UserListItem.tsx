@@ -1,11 +1,15 @@
 import { User } from './types'
 
 export const UserListItem = ({ email, gender, name }: User) => (
-  <div className='space-x-2'>
-    <span>
+  <tr>
+    <td>
       {name.title} {name.first} {name.last}
-    </span>
-    <span>{gender}</span>
-    <span>{email}</span>
-  </div>
+    </td>
+    <td>{gender}</td>
+    <td>
+      <a className='link' href={`mailto:${email}`}>
+        {email}
+      </a>
+    </td>
+  </tr>
 )

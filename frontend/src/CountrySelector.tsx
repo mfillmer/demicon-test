@@ -9,6 +9,7 @@ export const CountrySelector = ({
 }) => {
   return (
     <select
+      className='select'
       value={value}
       onChange={(e) => setValue(e.currentTarget.value)}
       name='country'>
