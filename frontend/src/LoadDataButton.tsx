@@ -12,8 +12,8 @@ export const LoadDataButton = ({
   }
 
   return (
-    <div className='btn btn-primary' onClick={loadData}>
+    <button className='btn btn-primary' onClick={loadData}>
       load data
-    </div>
+    </button>
   )
 }
