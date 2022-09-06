@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const fetchData = async () => {
+  const URL = process.env.REACT_APP_BACKEND_URL || '127.0.0.1:5000/users'
+
+  const res = await fetch(URL)
+  const data = await res.json()
+
+  return data
 }
 
-export default App;
+export const App = () => {
+  const [data, setData] = useState({})
+
+  const loadData = async () => {
+    const d = await fetchData()
+    console.log(d)
+    setData(d)
+  }
+
+  return (
+    <div>
+      <div className='btn' onClick={loadData}>
+        load data
+      </div>
+      <div>{JSON.stringify(data)}</div>
+    </div>
+  )
+}
+
+export default App

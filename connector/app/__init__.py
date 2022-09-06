@@ -13,12 +13,7 @@ def setup_app(app: Flask):
 
 def init_modules(app: Flask):
     db.init_app(app)
-
-    if (app.debug):
-        CORS(app)
-    else:
-        allowed_origins = app.config.get('ALLOWED_ORIGINS', '').split(' ')
-        CORS(app, origins=allowed_origins)
+    CORS(app)
 
 
 def setup_cli(app: Flask):
