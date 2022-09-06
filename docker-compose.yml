@@ -1,9 +1,32 @@
 version: '3.6'
-
 services:
   api:
+    networks:
+      - demicon_network
     build: ./connector
     ports:
       - 5000:5000
     environment:
       ALLOWED_ORIGINS: '*'
+
+
+
+  client:
+    container_name: client
+    networks:
+      - demicon_network
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_BACKEND_URL: $$(gp url 5000)/users/
+        
+    ports:
+      - 3000:80
+    volumes:
+      - node-cache-client:/app/node_modules       
+
+networks:
+  demicon_network:
+
+volumes:
+  node-cache-client:

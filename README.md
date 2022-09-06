@@ -1,5 +1,17 @@
 # demicon-test
 
+
+## Setup
+
+For running the app, please install docker and docker-compose.
+Then, move into the project directory and run `docker-compose up`
+After building and running the App, you need to initialise the database by running `docker-compose exec api flask setup-db`.
+For syncing, please use `docker-compose exec api flask sync`.
+
+## Scaling
+
+For scaling, please note that the database is a sqlite file inside the backend container. It can be extracted and then used by multiple services. 
+
 ## Copy of the task description
 
 Description Tech Task D3 Cloud: Full-Stack Developer
