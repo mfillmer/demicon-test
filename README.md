@@ -45,7 +45,7 @@ ComboBox country (filter can implement on frontend side)
 Depending on your time please document and/or implement the deployment of the
 application in the cloud. What resources do you need to deploy the basic application and
 what considerations need to be made to scale your application?
-### Result###
+### Result ###
 The source code please push on any git repository (github, bitbucket, gitlab ...) and provide
 the instructions for building and starting the application
 Good luck with your editing and we look forward to seeing your results!
